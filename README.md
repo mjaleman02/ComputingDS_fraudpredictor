@@ -1,2 +1,2 @@
 # ComputingDS_fraud_predictor
-Due to the large size of the synthetic_fraud_data.csv (3GB), in the repository we have only included a reduced .csv with 10,000 observations, that is indeed the one that has been used for the whole analysi. 
+Due to the large size of the synthetic_fraud_data.csv (3GB), in the repository we have only included a reduced .csv with 10,000 observations, that is indeed the one that has been used for the whole analysis. 
