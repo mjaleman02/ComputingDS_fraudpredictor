@@ -16,8 +16,8 @@ def test_add_column_by_merge():
     assert not df_merge.empty, "gdp_per_capita.csv loaded as empty."
     
     # Define columns to merge
-    merge_on = ['Country Code']  # Adjust based on shared keys
-    columns_to_merge = ['2023']  # Column(s) from df_merge to include in the final merged DataFrame
+    merge_on = ['Country Code']  
+    columns_to_merge = ['2023']  
     
     # Add the column by merging
     merged_df = add_column_by_merge(df_base, df_merge, merge_on=merge_on, columns_to_merge=columns_to_merge, how='left')
@@ -28,7 +28,7 @@ def test_add_column_by_merge():
     )
     
     # Validate the merge by checking specific rows
-    country_code = 'USA'  # Example country code
+    country_code = 'USA'  
     if country_code in df_base['Country Code'].values:
         merged_row = merged_df[merged_df['Country Code'] == country_code]
         if not merged_row.empty:
