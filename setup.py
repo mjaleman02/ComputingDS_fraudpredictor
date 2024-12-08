@@ -1,5 +1,3 @@
-# setup.py
-
 from setuptools import setup, find_packages
 
 setup(
@@ -14,6 +12,5 @@ setup(
         'matplotlib',
         'pytest',
         'pytest-cov',
-        # Add other dependencies as needed
     ],
 )
