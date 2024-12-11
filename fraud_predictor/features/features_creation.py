@@ -94,37 +94,3 @@ def create_payment_safety(df, device_col='device', safety_col='payment_safety', 
     
     df[safety_col] = df[device_col].map(device_mapping)
     return df
-
-def create_features(df):
-    """
-    Composite function to create all necessary features.
-    """
-    # Step 1: Transform 'timestamp' to datetime
-    df = transform_to_datetime_type(df)
-    
-    # Step 2: Create time-related columns
-    df = create_time_columns(df)
-    
-    # Step 3: Categorize transaction hour
-    df = categorize_hour_column(df)
-    
-    # Step 4: Drop redundant columns
-    columns_to_drop = ['timestamp', 'transaction_hour']  # Adjust based on actual requirements
-    df = drop_redundant_columns(df, columns_to_drop)
-    
-    # Step 5: Create channel usage feature
-    df = create_channel_usage(df, customer_col='customer_id', channel_col='channel')
-    
-    # Step 6: Create interaction feature
-    df = create_interaction_by_category(df, col1='channel_usage', col2='hour_category', new_col_name='channel_hour_interaction')
-    
-    # Step 7: Create payment safety feature
-    device_mapping = {
-        'mobile': 'high',
-        'web': 'medium',
-        'POS': 'low'
-        # Add other mappings as needed
-    }
-    df = create_payment_safety(df, device_col='device', safety_col='payment_safety', device_mapping=device_mapping)
-    
-    return df
